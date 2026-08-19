@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Love ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at top, #ffb6c1, #ff4d6d 45%, #8b0038);
+
+            font-family: Arial, sans-serif;
+        }
+
+
+        /* کارت اصلی */
+
+        .love-card {
+            width: 90%;
+            max-width: 900px;
+
+            padding: 55px 25px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.15);
+
+            border: 2px solid rgba(255, 255, 255, 0.4);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.3);
+
+            z-index: 10;
+        }
+
+
+        /* قلب اصلی */
+
+        .main-heart {
+            font-size: 100px;
+
+            cursor: pointer;
+
+            user-select: none;
+
+            display: inline-block;
+
+            animation: heartbeat 1.2s infinite;
+
+            transition: 0.2s;
+        }
+
+
+        .main-heart:hover {
+            transform: scale(1.2);
+        }
+
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.15);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        /* متن انگلیسی */
+
+        h1 {
+            color: red;
+
+            font-size: clamp(45px, 8vw, 90px);
+
+            font-weight: bold;
+
+            text-shadow:
+                0 0 10px white,
+                0 0 20px pink;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* متن فارسی */
+
+        .persian-text {
+
+            color: white;
+
+            font-size: clamp(25px, 5vw, 50px);
+
+            font-weight: bold;
+
+            line-height: 1.8;
+
+            text-shadow:
+                0 0 10px #ff004c,
+                0 0 20px #ff004c;
+        }
+
+
+        /* متن پایین */
+
+        .small-text {
+
+            margin-top: 25px;
+
+            color: #ffe6eb;
+
+            font-size: clamp(16px, 3vw, 24px);
+        }
+
+
+        /* ================================= */
+        /* جمله عاشقانه */
+        /* ================================= */
+
+        .love-message {
+
+            position: fixed;
+
+            left: 50%;
+            top: 15%;
+
+            transform: translateX(-50%);
+
+            width: 90%;
+
+            text-align: center;
+
+            color: white;
+
+            font-size: clamp(22px, 4vw, 38px);
+
+            font-weight: bold;
+
+            text-shadow:
+                0 0 10px red,
+                0 0 20px #ff0066;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            z-index: 1000;
+        }
+
+
+        .love-message.show {
+
+            animation: messageAnimation 3s ease forwards;
+        }
+
+
+        @keyframes messageAnimation {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateX(-50%)
+                    translateY(20px)
+                    scale(0.8);
+            }
+
+            15% {
+                opacity: 1;
+
+                transform:
+                    translateX(-50%)
+                    translateY(0)
+                    scale(1);
+            }
+
+            75% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+
+                transform:
+                    translateX(-50%)
+                    translateY(-20px)
+                    scale(1.05);
+            }
+        }
+
+
+        /* ================================= */
+        /* قلب های پس زمینه */
+        /* ================================= */
+
+        .heart {
+
+            position: absolute;
+
+            bottom: -50px;
+
+            font-size: 30px;
+
+            animation: floatUp linear infinite;
+
+            opacity: 0.8;
+
+            pointer-events: none;
+        }
+
+
+        @keyframes floatUp {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* ================================= */
+        /* قلب های انفجاری */
+        /* ================================= */
+
+        .explosion-heart {
+
+            position: fixed;
+
+            left: 50%;
+            top: 50%;
+
+            pointer-events: none;
+
+            z-index: 2000;
+
+            animation:
+                explode 1.3s ease-out forwards;
+        }
+
+
+        @keyframes explode {
+
+            0% {
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(0);
+
+                opacity: 1;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translate(
+                        calc(-50% + var(--x)),
+                        calc(-50% + var(--y))
+                    )
+                    scale(1.5)
+                    rotate(var(--rotate));
+
+                opacity: 0;
+            }
+        }
+
+
+        /* ================================= */
+        /* موبایل */
+        /* ================================= */
+
+        @media (max-width: 600px) {
+
+            .love-card {
+                padding: 40px 18px;
+            }
+
+            .main-heart {
+                font-size: 70px;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+
+            .persian-text {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- قلب های شناور -->
+
+    <div class="heart" style="left:5%; animation-duration:7s;">❤️</div>
+
+    <div class="heart" style="left:15%; animation-duration:9s;">💗</div>
+
+    <div class="heart" style="left:25%; animation-duration:6s;">💛</div>
+
+    <div class="heart" style="left:35%; animation-duration:8s;">💖</div>
+
+    <div class="heart" style="left:50%; animation-duration:10s;">❤️</div>
+
+    <div class="heart" style="left:60%; animation-duration:7s;">💞</div>
+
+    <div class="heart" style="left:70%; animation-duration:9s;">💛</div>
+
+    <div class="heart" style="left:80%; animation-duration:6s;">💗</div>
+
+    <div class="heart" style="left:90%; animation-duration:8s;">🤍</div>
+
+
+    <!-- پیام عاشقانه -->
+
+    <div id="loveMessage" class="love-message"></div>
+
+
+    <!-- کارت -->
+
+    <div class="love-card">
+
+
+        <!-- قلب قابل کلیک -->
+
+        <div
+            class="main-heart"
+            onclick="loveClick(event)"
+        >
+            ❤️
+        </div>
+
+
+        <h1>
+            I LOVE YOU
+        </h1>
+
+
+        <div class="persian-text">
+            تو دار و ندار منی دختر خوشگله ❤️
+        </div>
+
+
+        <div class="small-text">
+            You are my everything... 💕
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* ================================= */
+        /* جمله های عاشقانه */
+        /* ================================= */
+
+        const messages = [
+
+            "You are my everything ❤️",
+
+            "I can't imagine my life without you 💕",
+
+            "You are the most beautiful girl in my world 🌹",
+
+            "My heart belongs to you ❤️",
+
+            "You make my world beautiful 💖",
+
+            "I love you more than words can say 💗",
+
+            "You are my favorite person in the world 🥰",
+
+            "Every moment with you is special 💞",
+
+            "You are the reason I smile every day ❤️",
+
+            "Forever and always, it's you 💘"
+
+        ];
+
+
+        let messageIndex = 0;
+
+
+        /* ================================= */
+        /* کلیک روی قلب */
+        /* ================================= */
+
+        function loveClick(event) {
+
+
+            /* انفجار قلب ها */
+
+            explodeHearts();
+
+
+            /* نمایش جمله */
+
+            const message =
+                document.getElementById("loveMessage");
+
+
+            message.innerText =
+                messages[messageIndex];
+
+
+            message.classList.remove("show");
+
+
+            /*
+            این خط باعث می شود
+            انیمیشن دوباره اجرا شود
+            */
+
+            void message.offsetWidth;
+
+
+            message.classList.add("show");
+
+
+            /* رفتن به جمله بعدی */
+
+            messageIndex++;
+
+
+            if (messageIndex >= messages.length) {
+
+                messageIndex = 0;
+
+            }
+
+        }
+
+
+        /* ================================= */
+        /* انفجار قلب */
+        /* ================================= */
+
+        function explodeHearts() {
+
+
+            const hearts = [
+
+                "❤️",
+                "💖",
+                "💗",
+                "💕",
+                "💓",
+                "💞",
+                "💘",
+                "💝",
+                "💜",
+                "💙",
+                "💛",
+                "🤍",
+                "🩷",
+                "🧡"
+
+            ];
+
+
+            /* تعداد قلب ها */
+
+            for (let i = 0; i < 45; i++) {
+
+
+                const heart =
+                    document.createElement("div");
+
+
+                heart.classList.add(
+                    "explosion-heart"
+                );
+
+
+                /* انتخاب قلب تصادفی */
+
+                heart.innerText =
+                    hearts[
+                        Math.floor(
+                            Math.random() *
+                            hearts.length
+                        )
+                    ];
+
+
+                /* زاویه تصادفی */
+
+                const angle =
+                    Math.random() *
+                    Math.PI *
+                    2;
+
+
+                /* فاصله */
+
+                const distance =
+                    100 +
+                    Math.random() *
+                    400;
+
+
+                const x =
+                    Math.cos(angle) *
+                    distance;
+
+
+                const y =
+                    Math.sin(angle) *
+                    distance;
+
+
+                /* اندازه */
+
+                const size =
+                    18 +
+                    Math.random() *
+                    35;
+
+
+                heart.style.setProperty(
+                    "--x",
+                    `${x}px`
+                );
+
+
+                heart.style.setProperty(
+                    "--y",
+                    `${y}px`
+                );
+
+
+                heart.style.setProperty(
+                    "--rotate",
+                    `${Math.random() * 720 - 360}deg`
+                );
+
+
+                heart.style.fontSize =
+                    `${size}px`;
+
+
+                /* تأخیر کوچک */
+
+                heart.style.animationDelay =
+                    `${Math.random() * 0.2}s`;
+
+
+                document.body.appendChild(
+                    heart
+                );
+
+
+                /* حذف قلب */
+
+                setTimeout(() => {
+
+                    heart.remove();
+
+                }, 1600);
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
